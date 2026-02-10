@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Dristhika ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #ff9ecb, #ff6fae, #ffb7d5);
+  color: white;
+  text-align: center;
+}
+
+.container {
+  padding: 40px 20px 120px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 56px;
+  margin-bottom: 10px;
+}
+
+h2 { font-weight: 500; margin-top: 0; }
+
+.love-card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 24px;
+  padding: 30px;
+  margin-top: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.message {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.highlight {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.timer {
+  font-size: 28px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.photos img {
+  width: 100%;
+  border-radius: 20px;
+  border: 4px solid rgba(255,255,255,0.7);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+button {
+  background: white;
+  color: #ff3f8e;
+  border: none;
+  padding: 14px 26px;
+  border-radius: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+button:hover { transform: scale(1.08); }
+
+.yes-btn { font-size: 20px; padding: 16px 30px; }
+.no-btn { position: absolute; font-size: 18px; }
+
+/* Floating hearts & avocados */
+.floating {
+  position: fixed;
+  bottom: -50px;
+  font-size: 28px;
+  animation: floatUp linear forwards;
+  opacity: 0.9;
+  pointer-events: none;
+}
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.footer-love {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  font-family: 'Dancing Script', cursive;
+  font-size: 28px;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.proposal-box img {
+  width: 220px;
+  border-radius: 18px;
+  border: 4px solid white;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  margin-bottom: 15px;
+}
+
+.success {
+  font-size: 34px;
+  font-family: 'Dancing Script', cursive;
+  margin-top: 20px;
+  display: none;
+}
+
+/* Cinematic ending overlay */
+.ending {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #ff8fc4, #ff3f8e, #b30059);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 9999;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.ending h1 {
+  font-size: 64px;
+  margin: 10px 0;
+}
+
+.ending p {
+  font-size: 26px;
+}
+
+.spark {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+  animation: sparkFly 1.2s linear forwards;
+}
+
+@keyframes sparkFly {
+  to {
+    transform: translate(var(--dx), var(--dy));
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="mainContent">
+  <h1>For Dristhika 💖</h1>
+  <h2>From Aarav — My Forever Love</h2>
+
+  <div class="love-card">
+    <div class="message">
+      My love, every single day with you feels like a gift I never want to stop opening. 💞<br><br>
+      I appreciate your kindness, your patience, your laughter, your support, and all the little things you do that make my world brighter.
+      You make my worst days better and my best days unforgettable.
+      <br><br>
+      You are my comfort, my happiness, my safe place, and my favorite person.
+      <br><br>
+      <span class="highlight">I love you more than words, more than time, more than anything. 🥑❤️</span>
+    </div>
+
+    <div style="margin-top:20px;">
+      We have been together for:
+      <div id="timer" class="timer"></div>
+    </div>
+
+    <button onclick="toggleMusic()">▶ Play Our Song</button>
+  </div>
+
+  <div class="photos">
+    <img src="image1.jpg" alt="Our Photo 1">
+    <img src="image2.jpg" alt="Our Photo 2">
+  </div>
+
+  <!-- PROPOSAL SECTION -->
+  <div class="love-card proposal-box" id="proposal" style="position:relative; overflow:hidden;">
+    <img src="proposal.jpg" alt="Us Together">
+
+    <div class="message" style="font-size:26px;">
+      Dristhika, will you be with me forever? ♾️💍
+    </div>
+
+    <div style="margin-top:25px;">
+      <button class="yes-btn" onclick="sayYes()">YES ❤️</button>
+      <button class="no-btn" id="noBtn">No 🙈</button>
+    </div>
+
+    <div class="success" id="successMsg">
+      You just made me the happiest person alive 💖✨ Forever starts now!
+    </div>
+  </div>
+</div>
+
+<div class="footer-love">I love you forever ♾️💗</div>
+
+<!-- CINEMATIC ENDING -->
+<div class="ending" id="ending">
+  <h1>She Said YES 💍</h1>
+  <p>Aarav ❤️ Dristhika — Forever & Always</p>
+  <p>Our love story never ends ♾️</p>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Relationship start date
+const startDate = new Date("2025-07-20T00:00:00");
+
+function updateTimer() {
+  const now = new Date();
+  const diff = now - startDate;
+  const seconds = Math.floor(diff / 1000) % 60;
+  const minutes = Math.floor(diff / (1000*60)) % 60;
+  const hours = Math.floor(diff / (1000*60*60)) % 24;
+  const days = Math.floor(diff / (1000*60*60*24));
+  document.getElementById("timer").innerText =
+    days + " days " + hours + " hrs " + minutes + " min " + seconds + " sec";
+}
+setInterval(updateTimer, 1000);
+updateTimer();
+
+function toggleMusic() {
+  const music = document.getElementById("bgMusic");
+  if (music.paused) music.play(); else music.pause();
+}
+
+function createFloating() {
+  const el = document.createElement("div");
+  el.className = "floating";
+  el.innerText = Math.random() > 0.5 ? "❤️" : "🥑";
+  el.style.left = Math.random() * 100 + "vw";
+  el.style.animationDuration = (6 + Math.random()*6) + "s";
+  el.style.fontSize = (20 + Math.random()*30) + "px";
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 12000);
+}
+setInterval(createFloating, 500);
+
+// Moving NO button
+const noBtn = document.getElementById("noBtn");
+const proposalBox = document.getElementById("proposal");
+function moveNoButton() {
+  const boxRect = proposalBox.getBoundingClientRect();
+  const x = Math.random() * (boxRect.width - 120);
+  const y = Math.random() * (boxRect.height - 60);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
+noBtn.addEventListener("mouseenter", moveNoButton);
+noBtn.addEventListener("click", moveNoButton);
+
+function sparkBurst(cx, cy) {
+  for (let i = 0; i < 40; i++) {
+    const s = document.createElement('div');
+    s.className = 'spark';
+    s.style.left = cx + 'px';
+    s.style.top = cy + 'px';
+    const dx = (Math.random() - 0.5) * 300 + 'px';
+    const dy = (Math.random() - 0.5) * 300 + 'px';
+    s.style.setProperty('--dx', dx);
+    s.style.setProperty('--dy', dy);
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 1200);
+  }
+}
+
+function showEnding() {
+  document.getElementById('ending').style.display = 'flex';
+  for (let i = 0; i < 6; i++) {
+    setTimeout(() => sparkBurst(window.innerWidth/2, window.innerHeight/2), i*300);
+  }
+}
+
+function sayYes() {
+  document.getElementById("successMsg").style.display = "block";
+  for (let i = 0; i < 50; i++) createFloating();
+  setTimeout(showEnding, 1200);
+}
+</script>
+
+</body>
+</html>
